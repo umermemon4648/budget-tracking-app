@@ -5,12 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Tracking App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     
+    <section>
 
 
+        <h5>Budget Overview</h5>
+        <div class="overview">
+            <div class="overview-container"></div>
+            <div class="overview-container"></div>
+            <div class="overview-container"></div>
+        
+        
+        </div>
+
+        <h5>Set Budget Form:</h5>
+        <div class="budget-section">
+            <div class="budget-box">
+                <h3>Budget</h3>
+        
+                <input type="number" placeholder="Enter Total Monthly Amount" id="budget-amount">
+
+                <div>
+                    <button id="budget-btn">Set Budget</button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- budget detail -->
+        <div class="budget-details">
+            <h5>Add Expense Form</h5>
+
+            <div class="input-fields">
+                <label>Due Date <sup>*</sup></label>
+                <input type="date" id="date-field">
+            </div>
+
+
+            <div class="input-fields">
+                <label>Category <sup>*</sup></label>
+                <input type="text" id="date-field">
+            </div>
+
+
+            <div class="input-fields">
+                <label>Description <sup>*</sup></label>
+                <input type="text" id="date-field">
+            </div>
+
+
+            <div class="input-fields">
+                <label>Payment Date <sup>*</sup></label>
+                <input type="date" id="date-field">
+            </div>
+
+
+
+
+        </div>
+        
+    </section>
 
 
     <script src="./app.js"></script>
