@@ -15,23 +15,28 @@
         <div class="main-container">
 
             
-            <h5>Budget Overview:</h5>
+            <h5 id="overview-heading">Budget Overview:</h5>
         <div class="overview">
 
             <div class="overview-container">
-                <div class="icons">
-                    <img src="./assets/icons8-accounting-50.png" alt="">
-                </div>
-                <div class="amount">
-                    <h2>Rs: 8000</h2>
-                </div>
-                <div class="desc">
-                    <span>Total Budget</span>
+                <div>
+
+                    <div class="icons">
+                        <img src="./assets/icons8-accounting-50.png" alt="">
+                    </div>
+                    <div class="amount">
+                        <!-- <h2>Rs: ...</h2> -->
+                        <h2 id="budget-amount"></h2>
+                    </div>
+                    <div class="desc">
+                        <span>Total Budget</span>
+                    </div>
                 </div>
             </div>
 
 
             <div class="overview-container">    
+                <div>
                     <div class="icons">
                         <img src="./assets/icons8-debit-card-48.png" alt="">
                     </div>
@@ -41,10 +46,13 @@
                     <div class="desc">
                         <span>Expenses</span>
                     </div>
+                    </div>
                 </div>
                 
                 
                     <div class="overview-container">
+                        
+                <div>
                         <div class="icons">
                             <img src="./assets/icons8-expensive-48.png" alt="">
                         </div>
@@ -55,6 +63,7 @@
                             <span>Balance</span>
                         </div>
                     </div>
+                    </div>
         
         
                 </div>
@@ -64,7 +73,7 @@
             <div class="budget-box">
                 <h3>Budget</h3>
                 
-                <input type="number" placeholder="Enter Total Monthly Amount" id="budget-amount">
+                <input type="number" placeholder="Enter Total Monthly Amount" id="budget-limit" min="0">
                 
                 <div>
                     <button id="budget-btn">Set Budget</button>
@@ -76,13 +85,17 @@
         
         <!-- budget detail -->
         <div class="budget-details">
-            <h5>Add Expense Form</h5>
+            <h5 id="expense-heading">Add Expense Form</h5>
 
             <div class="input-fields">
-                <label>Due Date <sup>*</sup></label>
+                <label>Date <sup>*</sup></label>
                 <input type="date" id="date-field">
             </div>
             
+            <div class="input-fields">
+                <label>Amount <sup>*</sup></label>
+                <input type="number" min="0" id="amount-field">
+            </div>
             
             <div class="input-fields">
                 <label>Category <sup>*</sup></label>
@@ -96,15 +109,66 @@
             </div>
             
 
-            <div class="input-fields">
-                <label>Payment Date <sup>*</sup></label>
-                <input type="date" id="date-field">
-            </div>
+          
 
 
+            <button id="expense-btn" type="submit">Add Expense</button>
+    </div>
 
+
+    <h2 style="margin: 0.5rem 0;">Expense List</h2>
+    <table>
+        <thead>
+
+                <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Action</th>
+                </tr>
+            </thead>
+
+        <tbody>
+            <tr>
+                <td>30-5-2023</td>
+                <td>Netflix subscription</td>
+                <td>Monthly Subscription</td>
+                <td>800</td>
+                <td>
+                    <i class="icons fa-regular fa-pen-to-square"></i>
+                    <i class="icons fa-solid fa-delete-left"></i>
+                </td>
+            </tr>
             
-        </div>
+
+            <tr>
+                <td>30-5-2023</td>
+                <td>Netflix subscription</td>
+                <td>Monthly Subscription</td>
+                <td>800</td>
+                <td>
+                    <i class="icons fa-regular fa-pen-to-square"></i>
+                    <i class="icons fa-solid fa-delete-left"></i>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>30-5-2023</td>
+                <td>Netflix subscription</td>
+                <td>Monthly Subscription</td>
+                <td>800</td>
+                <td>
+                    <i class="icons fa-regular fa-pen-to-square"></i>
+                    <i class="icons fa-solid fa-delete-left"></i>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+
     </div>
         
     </section>
