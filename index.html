@@ -12,31 +12,68 @@
     
     <section>
 
+        <div class="main-container">
 
-        <h5>Budget Overview</h5>
+            
+            <h5>Budget Overview:</h5>
         <div class="overview">
-            <div class="overview-container"></div>
-            <div class="overview-container"></div>
-            <div class="overview-container"></div>
-        
-        
-        </div>
 
-        <h5>Set Budget Form:</h5>
+            <div class="overview-container">
+                <div class="icons">
+                    <img src="./assets/icons8-accounting-50.png" alt="">
+                </div>
+                <div class="amount">
+                    <h2>Rs: 8000</h2>
+                </div>
+                <div class="desc">
+                    <span>Total Budget</span>
+                </div>
+            </div>
+
+
+            <div class="overview-container">    
+                    <div class="icons">
+                        <img src="./assets/icons8-debit-card-48.png" alt="">
+                    </div>
+                    <div class="amount">
+                        <h2>Rs: 3000</h2>
+                    </div>
+                    <div class="desc">
+                        <span>Expenses</span>
+                    </div>
+                </div>
+                
+                
+                    <div class="overview-container">
+                        <div class="icons">
+                            <img src="./assets/icons8-expensive-48.png" alt="">
+                        </div>
+                        <div class="amount">
+                            <h2>Rs: 5000</h2>
+                        </div>
+                        <div class="desc">
+                            <span>Balance</span>
+                        </div>
+                    </div>
+        
+        
+                </div>
+
+                <h5 id="budget-heading">Set Budget Form:</h5>
         <div class="budget-section">
             <div class="budget-box">
                 <h3>Budget</h3>
-        
+                
                 <input type="number" placeholder="Enter Total Monthly Amount" id="budget-amount">
-
+                
                 <div>
                     <button id="budget-btn">Set Budget</button>
                 </div>
 
             </div>
         </div>
-
-
+        
+        
         <!-- budget detail -->
         <div class="budget-details">
             <h5>Add Expense Form</h5>
@@ -45,19 +82,19 @@
                 <label>Due Date <sup>*</sup></label>
                 <input type="date" id="date-field">
             </div>
-
-
+            
+            
             <div class="input-fields">
                 <label>Category <sup>*</sup></label>
                 <input type="text" id="date-field">
             </div>
-
-
+            
+            
             <div class="input-fields">
                 <label>Description <sup>*</sup></label>
                 <input type="text" id="date-field">
             </div>
-
+            
 
             <div class="input-fields">
                 <label>Payment Date <sup>*</sup></label>
@@ -66,8 +103,9 @@
 
 
 
-
+            
         </div>
+    </div>
         
     </section>
 
