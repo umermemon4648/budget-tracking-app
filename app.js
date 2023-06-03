@@ -15,7 +15,7 @@ const descField = document.querySelector('#desc-field')
 
 
 //  ****** buttons *****
-const budgetBtn = document.querySelector('#budget-btn')
+const setBudgetForm = document.querySelector('#set-budget-form')
 const budgetDetailForm = document.querySelector('#budget-detail-form') 
 
 
@@ -26,34 +26,37 @@ let isEdit = false
 
 
 
-if (setBudget.innerText === '0.00') {
-    budgetBtn.addEventListener('click', () => {
-        var value = parseFloat(budgetLimit.value);
-        if (isNaN(value) || value < 0) {
-            budgetLimit.value = '';
-          alert("-ve value is not allowed")
-        }
-
-        else {
-          setBudget.innerHTML = `${budgetLimit.value}`;
-          setBalance.innerHTML = `${budgetLimit.value}`;
-          budgetLimit.value = null;
-        } 
-        
-      });
-      
-
-  } 
-  else if(setBudget.innerText > '0.00'){
-    console.log(setBudget.innerHTML)
-        budgetBtn.disabled = true;
-        budgetBtn.style.cursor = 'not-allowed';
-        budgetBtn.style.opacity = 0.2;
-        budgetLimit.readOnly = true;
-        budgetLimit.style.opacity = 0.2;
-        budgetLimit.style.border = 'none';
-        }
+// if (setBudget.innerText === '0.00') {} 
+  // else if(setBudget.innerText > '0.00'){
+  //   console.log(setBudget.innerHTML)
+  //       setBudgetForm.disabled = true;
+  //       setBudgetForm.style.cursor = 'not-allowed';
+  //       setBudgetForm.style.opacity = 0.2;
+  //       budgetLimit.readOnly = true;
+  //       budgetLimit.style.opacity = 0.2;
+  //       budgetLimit.style.border = 'none';
+  //       }
   
+
+
+  setBudgetForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+      var value = parseFloat(budgetLimit.value);
+      if (isNaN(value) || value < 0) {
+          budgetLimit.value = '';
+        alert("-ve value is not allowed")
+      }
+
+      else {
+        setBudget.innerHTML = budgetLimit.value;
+        setBudgetForm.reset()
+      } 
+      
+    });
+
+
+
+
 
 // when expenseByn hit, get all inut values
 budgetDetailForm.addEventListener('submit', (e)=>{
