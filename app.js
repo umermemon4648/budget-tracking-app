@@ -60,6 +60,10 @@ budgetLimit.addEventListener('keydown', (e) => {
 //  ****** validating amount field to accept only +ve numbers *****
 amountField.addEventListener('keydown', (e) => {
   const key = e.key;
+  if (amountField.value.length >= 6 && key !== 'Backspace' && key !== 'Delete') {
+    e.preventDefault();
+  }
+
   if (key === '-' || key === 'e') {
     e.preventDefault();
   }
