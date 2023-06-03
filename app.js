@@ -135,6 +135,25 @@ function addingRowsToTable(formFields){
   console.log("expenseList after row added:  ",expenseList);
 }
 
+// **********  Function to create a row ***********
+
+const createTableRow = (date, category, desc, amount)=>{
+  const row = document.createElement('tr')
+  row.innerHTML = `
+  <td>${date}</td>
+  <td>${category}</td>
+  <td>${desc}</td>
+  <td>${amount}</td>
+  <td>
+  <i class="edit icons fa-regular fa-pen-to-square"></i>
+  <i class="delete icons fa-solid fa-delete-left"></i>
+  </td>
+  `
+  return row
+}
+
+
+
 
 // **********  Deleting a row ***********
 tableBody.addEventListener('click', (e)=>{
@@ -148,10 +167,6 @@ tableBody.addEventListener('click', (e)=>{
 
 
 
-// **********  Function to create a row ***********
 
-const createTableRow = ()=>{
-  const
-}
 
 
