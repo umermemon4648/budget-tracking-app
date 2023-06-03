@@ -86,8 +86,10 @@
         
         
         <!-- budget detail -->
-        <div class="budget-details">
-            <h5 id="expense-heading">Add Expense Form</h5>
+        <form id="budget-detail-form">
+
+            <div class="budget-details">
+                <h5 id="expense-heading">Add Expense Form</h5>
 
             <div class="input-fields">
                 <label>Date <sup>*</sup></label>
@@ -109,20 +111,17 @@
                 <label>Description <sup>*</sup></label>
                 <input type="text" id="desc-field">
             </div>
-            
-
-          
-
-
+                
             <button id="expense-btn" type="submit">Add Expense</button>
-    </div>
+        </div>
+    </form>
 
 
-    <h2 style="margin: 0.5rem 0;">Expense List</h2>
-    <!-- <button type="button" onclick="myFunction()">Try it</button> -->
-
-    <table>
-        <thead>
+        <h2 style="margin: 0.5rem 0;">Expense List</h2>
+        <!-- <button type="button" onclick="myFunction()">Try it</button> -->
+        
+        <table>
+            <thead>
 
                 <tr>
                     <th>Date</th>

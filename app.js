@@ -16,7 +16,7 @@ const descField = document.querySelector('#desc-field')
 
 //  ****** buttons *****
 const budgetBtn = document.querySelector('#budget-btn')
-const expenseBtn = document.querySelector('#expense-btn') 
+const budgetDetailForm = document.querySelector('#budget-detail-form') 
 
 
 //  ****** some Useful variables *****
@@ -56,7 +56,8 @@ if (setBudget.innerText === '0.00') {
   
 
 // when expenseByn hit, get all inut values
-expenseBtn.addEventListener('click', ()=>{
+budgetDetailForm.addEventListener('submit', (e)=>{
+  e.preventDefault()
   let date = currentDate.value
   let amount = Number(amountField.value)
   let category = categoryField.value
@@ -85,10 +86,7 @@ else if(!isEdit){
 
 
 // clearing all input fields in a form
-currentDate.value = ''
-amountField.value = ''
-categoryField.value = ''
-descField.value = ''
+budgetDetailForm.reset()
 
 
 })
