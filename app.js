@@ -29,7 +29,7 @@ expenseBtn.textContent = "Add Expense"
 //  ****** some Useful variables *****
 let expenseList = []
 let totalExpense = 0
-let isSelectedRow = null
+let selectedRow = null
 let isSetBudget = false
 
 
@@ -91,10 +91,17 @@ budgetDetailForm.addEventListener('submit', (e)=>{
     return
   }
 
-  else if(isSelectedRow == null){
+  else if(selectedRow == null){
     const row = createTableRow(date, category, desc, amount)
     tableBody.appendChild(row)
-    isSelectedRow = null
+    selectedRow = null
+  }
+
+  else{
+    selectedRow.children[0].textContent = date
+    selectedRow.children[1].textContent = category
+    selectedRow.children[2].textContent = desc
+    selectedRow.children[3].textContent = amount
   }
 
 
@@ -102,7 +109,7 @@ budgetDetailForm.addEventListener('submit', (e)=>{
 
 
 // clearing all input fields in a form
-// budgetDetailForm.reset()
+budgetDetailForm.reset()
 
 
 })
@@ -111,17 +118,28 @@ budgetDetailForm.addEventListener('submit', (e)=>{
 
 
 
-
-
-
 // **********  Deleting a row ***********
 tableBody.addEventListener('click', (e)=>{
-
+  
   let target = e.target
   if(target.classList.contains('delete')){
     target.parentElement.parentElement.remove()
   }
   
+})
+
+
+// **********  Edit a row ***********
+tableBody.addEventListener('click', (e)=>{
+  let target = e.target
+  if(target.classList.contains('edit')){
+    selectedRow = target.parentElement.parentElement
+    currentDate.value = selectedRow.children[0].textContent
+    categoryField.value = selectedRow.children[1].textContent
+    descField.value = selectedRow.children[2].textContent
+    amountField.value = selectedRow.children[3].textContent
+
+  }
 })
 
 
