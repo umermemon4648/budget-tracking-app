@@ -77,14 +77,15 @@ amountField.addEventListener('keydown', (e) => {
 // **********  set budget form ***********
 setBudgetForm.addEventListener('submit', (e) => {
   e.preventDefault()
-
+if (budgetLimit.value=='') {
+  return alert('Are you the 6 fingered man?')
+}
   setBudget.innerHTML = parseFloat(budgetLimit.value).toFixed(2);
       // setBudget.innerHTML =  (budgetLimit.value);
       // let bifyrest=budgetLimit.value
       // alert(typeof bifyrest)
       colorDivs.style.color = 'green';
       setBudgetForm.reset()
-    
   });
 
   
