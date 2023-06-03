@@ -137,7 +137,14 @@ function addingRowsToTable(formFields){
 
 
 // **********  Deleting a row ***********
+tableBody.addEventListener('click', (e)=>{
 
+  let target = e.target
+  if(target.classList.contains('delete')){
+    target.parentElement.parentElement.remove()
+  }
+  
+})
 
 
 
