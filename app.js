@@ -19,6 +19,10 @@ const budgetBtn = document.querySelector('#budget-btn')
 const expenseBtn = document.querySelector('#expense-btn') 
 
 
+//  ****** some Useful variables *****
+let expenseList = []
+let totalExpense = 0
+
 
 
 if (setBudget.innerText === '0.00') {
@@ -49,8 +53,7 @@ if (setBudget.innerText === '0.00') {
         budgetLimit.style.border = 'none';
         }
   
-const expenseList = []
-let totalExpense = 0
+
 // when expenseByn hit, get all inut values
 expenseBtn.addEventListener('click', ()=>{
   let date = currentDate.value
@@ -93,7 +96,10 @@ descField.value = ''
 function addingRowsToTable(date, category, desc, amount, id){
   let tableBody = document.querySelector('#table-body')
   let row = tableBody.insertRow(0)
-  row.setAttribute('data-id', id); // Add the data-id attribute with the id value
+  
+  // Add the data-id attribute with the id value
+  row.setAttribute('data-id', id); 
+  
   let cell0 = row.insertCell(0)
   let cell1 = row.insertCell(1)
   let cell2 = row.insertCell(2)
@@ -106,6 +112,7 @@ function addingRowsToTable(date, category, desc, amount, id){
   cell3.innerHTML = amount
   cell4.innerHTML = `<i class="icons fa-regular fa-pen-to-square"></i>
   <i onclick="deletingRow(${id})" class="icons fa-solid fa-delete-left"></i>`
+  console.log("expenseList after row added:  ",expenseList);
 }
 
 
@@ -118,14 +125,21 @@ const deletingRow = (id) => {
   // Find all rows within the table body
   let rows = tableBody.querySelectorAll('tr');
 
-  console.log("rows:", rows)
+  // console.log("rows:", rows)
   let rowsToDelete = Array.from(rows).find((expectedRow)=> expectedRow.getAttribute('data-id')===String(id))
 
   // Delete the row from the table
   if (rowsToDelete) {
     tableBody.removeChild(rowsToDelete);
+
+    
+  // update expenseList array whenever a row is deleted 
+  expenseList = expenseList.filter((exp)=> exp.id !== id)
+  console.log("expenseList_after delteing ",expenseList);
+
+ 
+
   }
 
-  
 }
 
