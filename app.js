@@ -22,6 +22,7 @@ const expenseBtn = document.querySelector('#expense-btn')
 //  ****** some Useful variables *****
 let expenseList = []
 let totalExpense = 0
+let isEdit = false
 
 
 
@@ -73,7 +74,7 @@ expenseBtn.addEventListener('click', ()=>{
     return
   }
 
-else{
+else if(!isEdit){
   expenseList.unshift({id, date, amount, category, desc})
   
   totalExpense += amount
@@ -81,6 +82,7 @@ else{
   console.log(expenseList);
   addingRowsToTable(date, category, desc, amount, id)
 }
+
 
 // clearing all input fields in a form
 currentDate.value = ''
@@ -149,18 +151,32 @@ const deletingRow = (id) => {
 
 // **********  Function to delete a row ***********
 const editRow = (id) => {
-  // Find the row to delete based on the id
+  // Find the row to edit based on the id
 
   let tableBody = document.querySelector('#table-body');
+  let rowToEdit = tableBody.querySelector(`tr[data-id="${id}"]`);
 
   // Find all rows within the table body
-  let rows = tableBody.querySelectorAll('tr');
+  // let rows = tableBody.querySelectorAll('tr');
 
   // console.log("rows:", rows)
-  let rowsToEdit = Array.from(rows).find((expectedRow)=> expectedRow.getAttribute('data-id')===String(id))
+  if (rowToEdit) {
+    let tdElements = rowToEdit.querySelectorAll('td');
+    let tdValues = Array.from(tdElements).map(td => td.innerHTML);
+    console.log("tdValues:", tdValues);
+    currentDate.value = tdValues[0]
+    categoryField.value = tdValues[1]
+    descField.value = tdValues[2]
+    amountField.value = tdValues[3]
+  }
 
   // getting all td's of a specific row as an array
-  console.log("rowsToEdit: ", rowsToEdit);
+  // console.log("rowsToEdit_1: ", rowsToEdit);
+
+  // currentDate.value = rowsToEdit[0]
+  // amountField.value = rowsToEdit[1]
+  // categoryField.value = rowsToEdit[2]
+  // descField.value = rowsToEdit[3]
 
 
 }
