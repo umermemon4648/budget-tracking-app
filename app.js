@@ -34,6 +34,14 @@ let isSetBudget = false
 
 
 
+// const amountField = document.getElementById('amount-field');
+
+amountField.addEventListener('keydown', (e) => {
+  const key = e.key;
+  if (key === '-' || key === 'e') {
+    e.preventDefault();
+  }
+});
 
 
 
@@ -136,6 +144,7 @@ tableBody.addEventListener('click', (e)=>{
   let target = e.target
   if(target.classList.contains('edit')){
     expenseBtn.textContent = "Update Expense"
+    amountField.focus()
     selectedRow = target.parentElement.parentElement
     currentDate.value = selectedRow.children[0].textContent
     categoryField.value = selectedRow.children[1].textContent
