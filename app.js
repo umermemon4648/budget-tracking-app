@@ -102,6 +102,7 @@ budgetDetailForm.addEventListener('submit', (e)=>{
     selectedRow.children[1].textContent = category
     selectedRow.children[2].textContent = desc
     selectedRow.children[3].textContent = amount
+    selectedRow = null
   }
 
 
@@ -133,6 +134,7 @@ tableBody.addEventListener('click', (e)=>{
 tableBody.addEventListener('click', (e)=>{
   let target = e.target
   if(target.classList.contains('edit')){
+    expenseBtn.textContent = "Update Expense"
     selectedRow = target.parentElement.parentElement
     currentDate.value = selectedRow.children[0].textContent
     categoryField.value = selectedRow.children[1].textContent
