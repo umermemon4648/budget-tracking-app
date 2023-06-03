@@ -34,11 +34,24 @@ let selectedRow = null
 let isSetBudget = false
 
 
+function formatNumberWithCommas(num) {
+  // Check if the input is a string, and convert it to a number if necessary
+  const value = typeof num === 'string' ? parseFloat(num) : num;
+
+  // Return the formatted number as a string with commas
+  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
 
 //  ****** validating budget limit field to accept only +ve numbers *****
 budgetLimit.addEventListener('keydown', (e) => {
   const key = e.key;
-  if (key === '-' || key === 'e') {
+  if (budgetLimit.value.length >= 8 && key !== 'Backspace' && key !== 'Delete') {
+    e.preventDefault();
+  }
+
+  if (key === '-' || key === 'e' ) {
     e.preventDefault();
   }
 });
@@ -60,18 +73,13 @@ amountField.addEventListener('keydown', (e) => {
 // **********  set budget form ***********
 setBudgetForm.addEventListener('submit', (e) => {
   e.preventDefault()
-    var value = parseFloat(budgetLimit.value);
-    if (isNaN(value) || value < 0) {
-        budgetLimit.value = '';
-      return alert("-ve value is not allowed")
-      
-    }
-    else {
-      setBudget.innerHTML = budgetLimit.value;
-      colorDivs.style.color = 'green';
 
+  setBudget.innerHTML = parseFloat(budgetLimit.value).toFixed(2);
+      // setBudget.innerHTML =  (budgetLimit.value);
+      // let bifyrest=budgetLimit.value
+      // alert(typeof bifyrest)
+      colorDivs.style.color = 'green';
       setBudgetForm.reset()
-    } 
     
   });
 
