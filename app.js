@@ -57,6 +57,9 @@ expenseBtn.addEventListener('click', ()=>{
   let amount = Number(amountField.value)
   let category = categoryField.value
   let desc = descField.value
+  // creating random id for each item
+  let id = Date.now()
+
 
   if (date ==='' || category==='' || desc==='' ) {
     alert('Please complete all input fields')
@@ -68,40 +71,61 @@ expenseBtn.addEventListener('click', ()=>{
   }
 
 else{
-
-  expenseList.unshift({id: Date.now(), date, amount, category, desc})
+  expenseList.unshift({id, date, amount, category, desc})
   
   totalExpense += amount
-  // let expense = parseFloat(setExpense.textContent)
-  // console.log("expense: ", expense);
-  // console.log("expense type: ", typeof expense);
-  // console.log("expense.textContent: ", expense.textContent);
-
   setExpense.textContent = totalExpense
   console.log(expenseList);
-
- 
-  
+  addingRowsToTable(date, category, desc, amount, id)
 }
-date = null
-amount = null
-category = null
-desc = null
+
+// clearing all input fields in a form
+currentDate.value = ''
+amountField.value = ''
+categoryField.value = ''
+descField.value = ''
+
+
 })
 
-function myFunction(){
+
+// **********  Function to insert new rows to the table ***********
+function addingRowsToTable(date, category, desc, amount, id){
   let tableBody = document.querySelector('#table-body')
   let row = tableBody.insertRow(0)
+  row.setAttribute('data-id', id); // Add the data-id attribute with the id value
   let cell0 = row.insertCell(0)
   let cell1 = row.insertCell(1)
   let cell2 = row.insertCell(2)
   let cell3 = row.insertCell(3)
   let cell4 = row.insertCell(4)
-
-  cell0.innerHTML = '30-5-2023'
-  cell1.innerHTML = 'Netflix subscription'
-  cell2.innerHTML = 'Monthly subscription'
-  cell3.innerHTML = 5000
+  
+  cell0.innerHTML = date
+  cell1.innerHTML = category
+  cell2.innerHTML = desc
+  cell3.innerHTML = amount
   cell4.innerHTML = `<i class="icons fa-regular fa-pen-to-square"></i>
-  <i class="icons fa-solid fa-delete-left"></i>`
+  <i onclick="deletingRow(${id})" class="icons fa-solid fa-delete-left"></i>`
 }
+
+
+// **********  Function to delete row ***********
+const deletingRow = (id) => {
+  // Find the row to delete based on the id
+
+  let tableBody = document.querySelector('#table-body');
+
+  // Find all rows within the table body
+  let rows = tableBody.querySelectorAll('tr');
+
+  console.log("rows:", rows)
+  let rowsToDelete = Array.from(rows).find((expectedRow)=> expectedRow.getAttribute('data-id')===String(id))
+
+  // Delete the row from the table
+  if (rowsToDelete) {
+    tableBody.removeChild(rowsToDelete);
+  }
+
+  
+}
+
