@@ -137,7 +137,10 @@ const deletingRow = (id) => {
   expenseList = expenseList.filter((exp)=> exp.id !== id)
   console.log("expenseList_after delteing ",expenseList);
 
- 
+  // update Totalexpense section
+  totalExpense = expenseList.reduce((acc, exp)=> acc+exp.amount, 0)
+  setExpense.textContent = totalExpense
+  
 
   }
 
