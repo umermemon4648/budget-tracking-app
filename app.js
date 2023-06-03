@@ -34,8 +34,16 @@ let isSetBudget = false
 
 
 
-// const amountField = document.getElementById('amount-field');
+//  ****** validating budget limit field to accept only +ve numbers *****
+budgetLimit.addEventListener('keydown', (e) => {
+  const key = e.key;
+  if (key === '-' || key === 'e') {
+    e.preventDefault();
+  }
+});
 
+
+//  ****** validating amount field to accept only +ve numbers *****
 amountField.addEventListener('keydown', (e) => {
   const key = e.key;
   if (key === '-' || key === 'e') {
