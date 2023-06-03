@@ -28,7 +28,7 @@
                     </div>
                     <div class="amount">
                         <!-- <h2>Rs: ...</h2> -->
-                        <h2 id="budget-amount">Rs: <span>0.00</span></h2>
+                        <h2 >Rs: <span id="budget-amount">0.00</span></h2>
                     </div>
                     <div class="desc">
                         <span>Total Budget</span>
@@ -43,7 +43,7 @@
                         <img src="./assets/icons8-debit-card-48.png" alt="">
                     </div>
                     <div class="amount">
-                        <h2>Rs: <span>0.00</span></h2>
+                        <h2>Rs: <span id="expense-amount">0.00</span></h2>
                     </div>
                     <div class="desc">
                         <span>Expenses</span>
@@ -59,7 +59,7 @@
                             <img src="./assets/icons8-expensive-48.png" alt="">
                         </div>
                         <div class="amount">
-                            <h2>Rs: <span>0.00</span></h2>
+                            <h2>Rs: <span id="remaining-balance">0.00</span></h2>
                         </div>
                         <div class="desc">
                             <span>Balance</span>
@@ -101,13 +101,13 @@
             
             <div class="input-fields">
                 <label>Category <sup>*</sup></label>
-                <input type="text" id="date-field">
+                <input type="text" id="category-field">
             </div>
             
             
             <div class="input-fields">
                 <label>Description <sup>*</sup></label>
-                <input type="text" id="date-field">
+                <input type="text" id="desc-field">
             </div>
             
 
@@ -119,6 +119,8 @@
 
 
     <h2 style="margin: 0.5rem 0;">Expense List</h2>
+    <button type="button" onclick="myFunction()">Try it</button>
+
     <table>
         <thead>
 
@@ -131,8 +133,8 @@
                 </tr>
             </thead>
 
-        <tbody>
-            <tr>
+        <tbody id="table-body">
+            <!-- <tr>
                 <td>30-5-2023</td>
                 <td>Netflix subscription</td>
                 <td>Monthly Subscription</td>
@@ -141,10 +143,10 @@
                     <i class="icons fa-regular fa-pen-to-square"></i>
                     <i class="icons fa-solid fa-delete-left"></i>
                 </td>
-            </tr>
+            </tr> -->
             
 
-            <tr>
+            <!-- <tr>
                 <td>30-5-2023</td>
                 <td>Netflix subscription</td>
                 <td>Monthly Subscription</td>
@@ -153,10 +155,10 @@
                     <i class="icons fa-regular fa-pen-to-square"></i>
                     <i class="icons fa-solid fa-delete-left"></i>
                 </td>
-            </tr>
+            </tr> -->
 
 
-            <tr>
+            <!-- <tr>
                 <td>30-5-2023</td>
                 <td>Netflix subscription</td>
                 <td>Monthly Subscription</td>
@@ -165,7 +167,7 @@
                     <i class="icons fa-regular fa-pen-to-square"></i>
                     <i class="icons fa-solid fa-delete-left"></i>
                 </td>
-            </tr>
+            </tr> -->
             
         </tbody>
     </table>
@@ -176,6 +178,6 @@
     </section>
 
 
-    <!-- <script src="./app.js"></script> -->
+    <script src="./app.js"></script>
 </body>
 </html>
