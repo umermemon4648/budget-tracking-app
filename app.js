@@ -103,6 +103,7 @@ budgetDetailForm.addEventListener('submit', (e)=>{
     selectedRow.children[2].textContent = desc
     selectedRow.children[3].textContent = amount
     selectedRow = null
+    expenseBtn.textContent = "Add Expense"
   }
 
 
