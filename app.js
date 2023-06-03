@@ -14,51 +14,72 @@ const descField = document.querySelector('#desc-field')
 
 
 
-//  ****** buttons *****
+//  ****** forms *****
 const setBudgetForm = document.querySelector('#set-budget-form')
 const budgetDetailForm = document.querySelector('#budget-detail-form') 
+
+//  ****** button *****
+const setBudgetBtn = document.querySelector('#budget-btn')
+
 
 
 //  ****** some Useful variables *****
 let expenseList = []
 let totalExpense = 0
 let isEdit = false
+let isSetBudget = false
+
+
+// setBudgetForm.addEventListener('submit', (e) => {
+//   e.preventDefault()
+//     var value = parseFloat(budgetLimit.value);
+//     if (isNaN(value) || value < 0) {
+//         budgetLimit.value = '';
+//       return alert("-ve value is not allowed")
+
+//     }
+//     else if(setBudget.textContent != '0.00'){
+//       // console.log(setBudget.innerHTML)
+//       setBudgetBtn.disabled = true;
+//       setBudgetBtn.style.cursor = 'not-allowed';
+//       setBudgetBtn.style.opacity = 0.2;
+//           budgetLimit.readOnly = true;
+//           budgetLimit.style.opacity = 0.2;
+//           budgetLimit.style.border = 'none';
+//           return
+
+//     }
+
+//     else {
+//       setBudget.innerHTML = budgetLimit.value;
+//       setBudgetForm.reset()
+//     } 
+    
+//   });
 
 
 
-if (setBudget.innerText == '0.00') {} 
-  else if(setBudget.innerText > '0.00'){
-    console.log(setBudget.innerHTML)
-        setBudgetForm.disabled = true;
-        setBudgetForm.style.cursor = 'not-allowed';
-        setBudgetForm.style.opacity = 0.2;
-        budgetLimit.readOnly = true;
-        budgetLimit.style.opacity = 0.2;
-        budgetLimit.style.border = 'none';
-        }
+
   
+setBudgetForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+    var value = parseFloat(budgetLimit.value);
+    if (isNaN(value) || value < 0) {
+        budgetLimit.value = '';
+      return alert("-ve value is not allowed")
 
-
-  setBudgetForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-      var value = parseFloat(budgetLimit.value);
-      if (isNaN(value) || value < 0) {
-          budgetLimit.value = '';
-        alert("-ve value is not allowed")
-      }
-
-      else {
-        setBudget.innerHTML = budgetLimit.value;
-        setBudgetForm.reset()
-      } 
-      
-    });
-
+    }
+    else {
+      setBudget.innerHTML = budgetLimit.value;
+      setBudgetForm.reset()
+    } 
+    
+  });
 
 
 
 
-// when expenseByn hit, get all inut values
+// when expenseBtn hit, get all input values
 budgetDetailForm.addEventListener('submit', (e)=>{
   e.preventDefault()
   let date = currentDate.value
@@ -90,6 +111,7 @@ else if(!isEdit){
 
 // clearing all input fields in a form
 budgetDetailForm.reset()
+isEdit = false;
 
 
 })
@@ -152,6 +174,7 @@ const deletingRow = (id) => {
 
 // **********  Function to delete a row ***********
 const editRow = (id) => {
+  isEdit = true
   // Find the row to edit based on the id
 
   let tableBody = document.querySelector('#table-body');
@@ -170,14 +193,6 @@ const editRow = (id) => {
     descField.value = tdValues[2]
     amountField.value = tdValues[3]
   }
-
-  // getting all td's of a specific row as an array
-  // console.log("rowsToEdit_1: ", rowsToEdit);
-
-  // currentDate.value = rowsToEdit[0]
-  // amountField.value = rowsToEdit[1]
-  // categoryField.value = rowsToEdit[2]
-  // descField.value = rowsToEdit[3]
 
 
 }
