@@ -3,6 +3,7 @@ const setBudget = document.querySelector('#set-budget')
 const setExpense = document.querySelector('#set-expense-amount')
 const setBalance = document.querySelector('#remaining-balance')
 let tableBody = document.querySelector('#table-body')
+let colorDivs = document.querySelector('.amount');
 
 
 //  ****** Input fields *****
@@ -53,7 +54,30 @@ amountField.addEventListener('keydown', (e) => {
 
 
 
-// **********  Function to create a row ***********
+
+
+
+// **********  set budget form ***********
+setBudgetForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+    var value = parseFloat(budgetLimit.value);
+    if (isNaN(value) || value < 0) {
+        budgetLimit.value = '';
+      return alert("-ve value is not allowed")
+      
+    }
+    else {
+      setBudget.innerHTML = budgetLimit.value;
+      colorDivs.style.color = 'green';
+
+      setBudgetForm.reset()
+    } 
+    
+  });
+
+  
+
+  // **********  Function to create a row ***********
 const createTableRow = (date, category, desc, amount)=>{
   const row = document.createElement('tr')
   row.innerHTML = `
@@ -70,24 +94,6 @@ const createTableRow = (date, category, desc, amount)=>{
 }
 
 
-// **********  set budget form ***********
-setBudgetForm.addEventListener('submit', (e) => {
-  e.preventDefault()
-    var value = parseFloat(budgetLimit.value);
-    if (isNaN(value) || value < 0) {
-        budgetLimit.value = '';
-      return alert("-ve value is not allowed")
-      
-    }
-    else {
-      setBudget.innerHTML = budgetLimit.value;
-      setBudgetForm.reset()
-    } 
-    
-  });
-
-  
-  
   
 // ***** when expenseBtn hit, get all input values ******
 budgetDetailForm.addEventListener('submit', (e)=>{

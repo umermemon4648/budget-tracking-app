@@ -50,9 +50,7 @@ section{
 .amount{
     font-size: 2.1rem;
     margin: 0.5rem 0;
-}
-.amount > h2{
-    color: red;
+    color: purple;
 }
 .desc{
 color: gray;
