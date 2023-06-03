@@ -1,6 +1,6 @@
 //  ****** Html tags *****
-const setBudget = document.querySelector('#budget-amount')
-const setExpense = document.querySelector('#expense-amount')
+const setBudget = document.querySelector('#set-budget')
+const setExpense = document.querySelector('#set-expense-amount')
 const setBalance = document.querySelector('#remaining-balance')
 
 
@@ -26,16 +26,16 @@ let isEdit = false
 
 
 
-// if (setBudget.innerText === '0.00') {} 
-  // else if(setBudget.innerText > '0.00'){
-  //   console.log(setBudget.innerHTML)
-  //       setBudgetForm.disabled = true;
-  //       setBudgetForm.style.cursor = 'not-allowed';
-  //       setBudgetForm.style.opacity = 0.2;
-  //       budgetLimit.readOnly = true;
-  //       budgetLimit.style.opacity = 0.2;
-  //       budgetLimit.style.border = 'none';
-  //       }
+if (setBudget.innerText == '0.00') {} 
+  else if(setBudget.innerText > '0.00'){
+    console.log(setBudget.innerHTML)
+        setBudgetForm.disabled = true;
+        setBudgetForm.style.cursor = 'not-allowed';
+        setBudgetForm.style.opacity = 0.2;
+        budgetLimit.readOnly = true;
+        budgetLimit.style.opacity = 0.2;
+        budgetLimit.style.border = 'none';
+        }
   
 
 
