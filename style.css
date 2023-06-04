@@ -28,6 +28,7 @@ section{
     /* width: 80%; */
     justify-content: space-between;
     align-items: center;
+    margin: 2rem;
     /* padding: 1rem 2rem; */
 }
 .main-container{
@@ -94,8 +95,6 @@ padding: 15px;
     height: 4rem;
     width: 50%;
     border-radius: 0.5rem;
-    font-size: 1.8rem;
-
     cursor: pointer;
     color: #fff;
     background-color: #DB2B77;
@@ -139,7 +138,6 @@ font-weight: bold;
     margin: 1rem 0;
     width: 30%;
     border-radius: 0.6rem;
-    font-size: 1.8rem;
     padding: 1rem 1rem;
     cursor: pointer;
     color: #fff;
@@ -209,6 +207,100 @@ sup{
 }
 
 
+
+
+
+/* media queries */
+@media screen and (max-width: 1250px ) and (min-width: 767px) {
+
+   
+   
+    
+.overview{
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+.main-container{
+    margin: 0rem 0rem;
+}
+
+.overview-container{
+    width: 300px;
+    height: 220px;
+
+} 
+
+
+
+.budget-section{
+    margin: 1.5rem auto;
+    width: 80%;
+    padding: 12px;
+    border-radius: 1rem;
+    background-color: #EFF3F4;
+}
+
+
+
+.budget-details{
+    margin: auto;
+    width: 80%;
+}
+
+#expense-btn{
+    width: 40%;
+}
+
+
+table{
+    width: 100%;
+	border-collapse: collapse; 
+    border-radius: 10px;
+    border: none;
+    table-layout: fixed;
+    font-size: 1.2rem;
+}
+
+th{
+    text-align: left;
+    color: #9b9fa0;
+    background-color: #EFF3F4;
+    height: 5rem;
+    padding-left: 2rem;
+}
+
+th:nth-child(1){
+width: 20%;
+}
+th:nth-child(2){
+    width: 25%;
+    }
+    th:nth-child(3){
+        width: 15%;
+        }
+
+        th:nth-child(4){
+            width: 10%;
+            }
+            th:nth-child(5){
+                width: 30%;
+                }
+
+tbody tr{
+    border: 2px solid #EFF3F4;
+    height: 5rem;
+}
+tbody tr td{ 
+    padding-left: 2rem;
+}
+
+
+
+
+}
+
+
 /* media queries */
 @media screen and (max-width: 768px ) {
 
@@ -227,6 +319,11 @@ sup{
     margin: 0rem 0rem;
 }
 
+.overview-container{
+    /* flex-grow: 1; */
+    width: 300px;
+    height: 220px;
+}
 
 /* #overview-heading{
 margin-bottom: 1rem;
@@ -261,6 +358,158 @@ font-weight: bold;
 }
 
 
-    
+table{
+    width: 100%;
+	border-collapse: collapse; 
+    border-radius: 10px;
+    border: none;
+    table-layout: fixed;
+    font-size: 1.2rem;
+}
+
+th{
+    text-align: left;
+    color: #9b9fa0;
+    background-color: #EFF3F4;
+    height: 5rem;
+    padding-left: 2rem;
+}
+
+th:nth-child(1){
+width: 20%;
+}
+th:nth-child(2){
+    width: 25%;
+    }
+    th:nth-child(3){
+        width: 15%;
+        }
+
+        th:nth-child(4){
+            width: 10%;
+            }
+            th:nth-child(5){
+                width: 30%;
+                }
+
+tbody tr{
+    border: 2px solid #EFF3F4;
+    height: 5rem;
+}
+tbody tr td{ 
+    padding-left: 2rem;
+}
+
+
+
 
 }
+
+
+
+
+
+/* media queries */
+@media screen and (max-width: 640px) {
+
+    body{
+        font-size: 1.3rem;
+        overflow-x: hidden;
+    }
+
+    section{
+        /* border: 1px solid blue; */
+        margin: 1rem 5rem ;
+    }
+    
+.overview{
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+.main-container{
+    margin: 0rem 0rem;
+}
+
+.overview-container{
+    /* flex-grow: 1; */
+    width: 300px;
+    height: 220px;
+}
+
+
+
+
+.budget-section{
+    margin: 1.5rem auto;
+    border: 1px solid red;
+    width: 100%;
+    padding: 12px;
+    border-radius: 1rem;
+    background-color: #EFF3F4;
+}
+
+
+
+.budget-details{
+    margin: auto;
+    width: 100%;
+}
+#budget-btn{
+    width: 50%;
+}
+#expense-btn{
+    width: 80%;
+}
+
+
+table{
+    width: 100%;
+	border-collapse: collapse; 
+    border-radius: 10px;
+    border: none;
+    table-layout: fixed;
+    font-size: 1rem;
+}
+
+th{
+    text-align: left;
+    color: #9b9fa0;
+    background-color: #EFF3F4;
+    height: 5rem;
+    padding-left: 2rem;
+}
+
+th:nth-child(1){
+width: 25%;
+}
+th:nth-child(2){
+    width: 20%;
+    }
+    th:nth-child(3){
+        width: 15%;
+        }
+
+        th:nth-child(4){
+            width: 10%;
+            }
+            th:nth-child(5){
+                width: 25%;
+                }
+
+tbody tr{
+    border: 2px solid #EFF3F4;
+    height: 7rem;
+}
+tbody tr td{ 
+    padding-left: 2rem;
+}
+
+
+.icons{
+    font-size: 1.5rem;
+}
+
+}
+

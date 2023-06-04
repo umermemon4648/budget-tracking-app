@@ -83,11 +83,11 @@ setBudgetForm.addEventListener('submit', (e) => {
 const createTableRow = (id, date, category, desc, amount) => {
   const row = document.createElement('tr');
   row.innerHTML = `
-    <td>${date}</td>
-    <td>${category}</td>
-    <td>${desc}</td>
-    <td>${amount}</td>
-    <td>
+    <td data-label="Date">${date}</td>
+    <td data-label="Category">${category}</td>
+    <td data-label="Description">${desc}</td>
+    <td data-label="Amount">${amount}</td>
+    <td data-label="Action">
       <i class="edit icons fa-regular fa-pen-to-square"></i>
       <i class="delete icons fa-regular fa-trash-can"></i>
     </td>
