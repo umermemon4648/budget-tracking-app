@@ -74,7 +74,7 @@ setBudgetForm.addEventListener('submit', (e) => {
   expenseSummary.totalBudget = parseFloat(budgetLimit.value)
   calculateBalance(expenseSummary.totalBudget, expenseSummary.totalExpense)
   setBudget.innerHTML = expenseSummary.totalBudget.toFixed(2);
-  colorDivs.style.color = 'green';
+  colorDivs.style.color = 'forestgreen';
   setBudgetForm.reset();
   updateObjInLocalStorage()
 });
@@ -89,7 +89,7 @@ const createTableRow = (id, date, category, desc, amount) => {
     <td>${amount}</td>
     <td>
       <i class="edit icons fa-regular fa-pen-to-square"></i>
-      <i class="delete icons fa-solid fa-delete-left"></i>
+      <i class="delete icons fa-regular fa-trash-can"></i>
     </td>
   `;
   row.dataset.id = id; 
@@ -259,6 +259,7 @@ console.log("sum:", sum);
 expenseSummary.totalExpense = parseInt(sum)
 
 setExpense.textContent = (expenseSummary.totalExpense).toFixed(2)
+colorDivs.style.color = 'forestgreen';
 }
 
 

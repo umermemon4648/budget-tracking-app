@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 body{
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     background-color: #EFF3F4;
     background-color: #FFFFFF;
     font-family: 'Raleway', sans-serif;
@@ -18,7 +18,7 @@ html {
 
 section{
     /* border: 1px solid blue; */
-    margin: 3rem 5rem ;
+    margin: 1rem 5rem ;
 }
 
 .overview{
@@ -32,7 +32,7 @@ section{
 }
 .main-container{
 
-    margin: 1rem 2rem;
+    margin: 0.5rem 2rem;
 }
 .overview-container{
     /* flex-grow: 1; */
@@ -42,7 +42,7 @@ section{
     border-radius: 1rem;
     cursor: pointer;
     background-color: #DB2B77;
-    background-color: #63C9C4;
+    background-color: #7911F7;
     background-color: #EFF3F4;
     background-color: #FCFCFC;
     display: flex;
@@ -60,13 +60,13 @@ color: gray;
 }
 
 #overview-heading{
-margin-bottom: 1rem;
+margin-bottom: 0.5rem;
 font-size: 2rem;
 font-weight: bold;
 }
 
 #budget-heading{
-    margin: 2rem 0;
+    margin: 1.3rem 0;
     font-size: 2rem;
     font-weight: bold;
 }
@@ -84,28 +84,28 @@ padding: 15px;
     margin-top: 1rem;
 }
 #budget-limit{
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     margin-top: 1rem;
     width: 80%;
 }
 
 
 #budget-btn{
-    height: 3.8rem;
+    height: 4rem;
     width: 50%;
-    border-radius: 0.6rem;
+    border-radius: 0.5rem;
     font-size: 1.8rem;
 
     cursor: pointer;
     color: #fff;
     background-color: #DB2B77;
-    background-color: #63C9C4;
+    background-color: #7911F7;
     border: none;
     outline: none;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 #budget-btn:hover{
-    /* background-color: #c5467d; */
+    background-color: #7911f7d3;
 }
 
 input{
@@ -123,7 +123,7 @@ input{
 .input-fields{
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
+    margin-top: 0.5rem;
 }
 
 .budget-details{
@@ -143,11 +143,14 @@ font-weight: bold;
     padding: 1rem 1rem;
     cursor: pointer;
     color: #fff;
-    background-color: #DB2B77;
-    background-color: #63C9C4;
+    background-color: #7911F7;
     border: none;
     outline: none;
 }
+#expense-btn:hover{
+    background-color: #7911f7d3;
+}
+
 
 table{
     width: 100%;
@@ -188,4 +191,19 @@ tbody tr td{
     padding-right: 1rem;
     cursor: pointer;
     font-size: 2rem;
+}
+sup{
+    color: red;
+    font-size: 3rem;
+    font-weight: bold;
+}
+.icons{
+    font-size: 2.5rem;
+}
+.edit{
+    color: forestgreen;
+    
+}
+.delete{
+    color: red;
 }
