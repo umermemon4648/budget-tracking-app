@@ -39,6 +39,7 @@ let expenseSummary = {
   // Function to update and store the 'obj' in localStorage
   const updateObjInLocalStorage = () => {
     localStorage.setItem('expenseSummary', JSON.stringify(expenseSummary));
+    
   };
 
 
@@ -213,6 +214,23 @@ budgetDetailForm.addEventListener('submit', (e) => {
 // ****** Deleting a row *****
 tableBody.addEventListener('click', (e) => {
   let target = e.target;
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this imaginary file!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      swal("Poof! Your imaginary file has been deleted!", {
+        icon: "success",
+        
+      });
+    } 
+  });
+
+  
   if (target.classList.contains('delete')) {
     const rowIndex = parseInt(target.parentElement.parentElement.dataset.id);
     deleteExpense(rowIndex);
@@ -265,4 +283,11 @@ setExpense.textContent = (expenseSummary.totalExpense).toFixed(2)
 colorDivs.style.color = 'forestgreen';
 }
 
+
+document.querySelector('#btn').addEventListener('click', ()=>{
+  iziToast.show({
+    title: 'Hey',
+    message: 'What would you like to add?'
+});
+})
 
