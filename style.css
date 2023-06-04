@@ -23,12 +23,12 @@ section{
 
 .overview{
     display: flex;
+    flex-wrap: wrap;
     /* border: 1px solid salmon; */
     /* width: 80%; */
     justify-content: space-between;
     align-items: center;
     /* padding: 1rem 2rem; */
-
 }
 .main-container{
 
@@ -206,4 +206,61 @@ sup{
 }
 .delete{
     color: red;
+}
+
+
+/* media queries */
+@media screen and (max-width: 768px ) {
+
+    body{
+        font-size: 1.5rem;
+    }
+   
+    
+.overview{
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+.main-container{
+    margin: 0rem 0rem;
+}
+
+
+/* #overview-heading{
+margin-bottom: 1rem;
+font-size: 2rem;
+font-weight: bold;
+}
+
+#budget-heading{
+    margin: 1.3rem 0;
+    font-size: 2rem;
+    font-weight: bold;
+} */
+
+
+.budget-section{
+    margin: 1.5rem auto;
+    width: 80%;
+    padding: 12px;
+    border-radius: 1rem;
+    background-color: #EFF3F4;
+}
+
+
+
+.budget-details{
+    margin: auto;
+    width: 80%;
+}
+
+#expense-btn{
+    width: 40%;
+}
+
+
+    
+
 }
