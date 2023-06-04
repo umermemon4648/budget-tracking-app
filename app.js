@@ -27,17 +27,20 @@ let selectedRow = null;
 let isSetBudget = false;
 let previousExpenseAmount = 0
 
-// /creating an obj to store expense, balance, budget
-let obj = {
-  totalExpense: 0,
-  totalBudget: 0,
-  balanceLeft: 0
-}
+// /creating an obj
+let expenseSummary = {
+    totalExpense: 0,
+    totalBudget: 0,
+    balanceLeft: 0
+  };
+  
+  const  getExpenseSummary= JSON.parse(localStorage.getItem('expenseSummary'))
 
-// store obj in localStorgae
-const storeBugetSummary = localStorage.setItem('obj', JSON.stringify(obj));
-// reterieve obj in localStorgae
-const getBugetSummary = JSON.parse(localStorage.getItem('obj'));
+  // Function to update and store the 'obj' in localStorage
+  const updateObjInLocalStorage = () => {
+    localStorage.setItem('expenseSummary', JSON.stringify(expenseSummary));
+  };
+
 
 
 // ****** Validating budget limit field to accept only positive numbers *****
@@ -70,24 +73,25 @@ setBudgetForm.addEventListener('submit', (e) => {
   if (budgetLimit.value === '') {
     return alert('Please set your budget limit');
   }
-  getBugetSummary.totalBudget = parseFloat(budgetLimit.value)
-  calculateBalance(getBugetSummary.totalBudget, getBugetSummary.totalExpense)
-  setBudget.innerHTML = getBugetSummary.totalBudget.toFixed(2);
-  colorDivs.style.color = 'green';
+  expenseSummary.totalBudget = parseFloat(budgetLimit.value)
+  calculateBalance(expenseSummary.totalBudget, expenseSummary.totalExpense)
+  colorDivs.style.color = 'forestgreen';
   setBudgetForm.reset();
+  updateObjInLocalStorage()
+  setBudget.innerHTML = getExpenseSummary.totalBudget.toFixed(2);
 });
 
 // ********** Function to create a table row ***********
 const createTableRow = (id, date, category, desc, amount) => {
   const row = document.createElement('tr');
   row.innerHTML = `
-    <td>${date}</td>
-    <td>${category}</td>
-    <td>${desc}</td>
-    <td>${amount}</td>
-    <td>
+    <td data-label="Date">${date}</td>
+    <td data-label="Category">${category}</td>
+    <td data-label="Description">${desc}</td>
+    <td data-label="Amount">${amount}</td>
+    <td data-label="Action">
       <i class="edit icons fa-regular fa-pen-to-square"></i>
-      <i class="delete icons fa-solid fa-delete-left"></i>
+      <i class="delete icons fa-regular fa-trash-can"></i>
     </td>
   `;
   row.dataset.id = id; 
@@ -126,8 +130,8 @@ const addExpense = (date, category, desc, amount) => {
   storeExpenseList();
   populateTable();
   calculateExpenses()
-  calculateBalance(storeBugetSummary.totalBudget, storeBugetSummary.totalExpense)
-  
+  calculateBalance(expenseSummary.totalBudget, expenseSummary.totalExpense)
+  updateObjInLocalStorage()
 };
 
 // ****** Update expense in expenseList *****
@@ -136,7 +140,8 @@ const updateExpense = (index, date, category, desc, amount) => {
   storeExpenseList();
   populateTable();
   calculateExpenses()
-  calculateBalance(storeBugetSummary.totalBudget, storeBugetSummary.totalExpense)
+  calculateBalance(expenseSummary.totalBudget, expenseSummary.totalExpense)
+  updateObjInLocalStorage()
 };
 
 // ****** Delete expense from expenseList *****
@@ -145,7 +150,8 @@ const deleteExpense = (index) => {
   storeExpenseList();
   populateTable();
   calculateExpenses()
-  calculateBalance(storeBugetSummary.totalBudget, storeBugetSummary.totalExpense)
+  calculateBalance(expenseSummary.totalBudget, expenseSummary.totalExpense)
+  updateObjInLocalStorage()
 };
 
 
@@ -174,11 +180,11 @@ budgetDetailForm.addEventListener('submit', (e) => {
     return alert('Please enter the description');
   }
 
-  else if(getBugetSummary.totalBudget<=0){
+  else if(expenseSummary.totalBudget<=0){
     return alert('Please! set your monthly budget');    
   }
   
-  else if(amount > getBugetSummary.balanceLeft && previousExpenseAmount==0){
+  else if(amount > expenseSummary.balanceLeft && previousExpenseAmount==0){
     return alert('The amount you entered is greater than remaining balance you have!');    
   }
 
@@ -190,7 +196,7 @@ budgetDetailForm.addEventListener('submit', (e) => {
   }
    
   else {
-    if ((amount-previousExpenseAmount) > getBugetSummary.balanceLeft) {
+    if (amount-previousExpenseAmount > expenseSummary.balanceLeft) {
       return alert('The amount you entered is greater than remaining balance you have!');    
     }
     const rowIndex = parseInt(selectedRow.dataset.id);
@@ -200,6 +206,7 @@ budgetDetailForm.addEventListener('submit', (e) => {
   }
 
   budgetDetailForm.reset();
+  updateObjInLocalStorage();
 });
 
 
@@ -209,6 +216,7 @@ tableBody.addEventListener('click', (e) => {
   if (target.classList.contains('delete')) {
     const rowIndex = parseInt(target.parentElement.parentElement.dataset.id);
     deleteExpense(rowIndex);
+    updateObjInLocalStorage()
   }
 });
 
@@ -235,8 +243,8 @@ populateTable();
 
 // ****** Editing a row *****
 function calculateBalance(totalBudget, totalExpense){
-  getBugetSummary.balanceLeft = totalBudget-totalExpense 
-  setBalance.textContent = (getBugetSummary.balanceLeft).toFixed(2)
+  expenseSummary.balanceLeft = totalBudget-totalExpense 
+  setBalance.textContent = (expenseSummary.balanceLeft).toFixed(2)
 }
 
 // ****** Function to calculate epenses enter *****
@@ -251,9 +259,10 @@ let fourthChildTds = Array.from(rows, row => row.querySelector('td:nth-child(4)'
 
 let sum = fourthChildTds.reduce((acc, cur) => acc + parseInt(cur.textContent), 0);
 console.log("sum:", sum);
-getBugetSummary.totalExpense = parseInt(sum)
+expenseSummary.totalExpense = parseInt(sum)
 
-setExpense.textContent = (getBugetSummary.totalExpense).toFixed(2)
+setExpense.textContent = (expenseSummary.totalExpense).toFixed(2)
+colorDivs.style.color = 'forestgreen';
 }
 
 

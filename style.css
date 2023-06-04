@@ -107,7 +107,7 @@ padding: 15px;
     background-color: #7911f7d3;
 }
 
-input{
+input, select{
     /* font-size: 1.8rem; */
     /* width: 90%; */
     height: 4.5rem;
@@ -160,7 +160,7 @@ th{
     text-align: left;
     color: #9b9fa0;
     background-color: #EFF3F4;
-    height: 5rem;
+    height: 6rem;
     padding-left: 2rem;
 }
 
@@ -296,7 +296,9 @@ tbody tr td{
 }
 
 
-
+.icons{
+    font-size: 2rem;
+}
 
 }
 
