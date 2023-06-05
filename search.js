@@ -7,6 +7,9 @@ function searchData(){
     table = document.querySelector('#table-body')
     tr = table.getElementsByTagName('tr')
 
+
+
+    
     for ( i = 0; i < tr.length; i++) {
        td = tr[i].getElementsByTagName('td')[1]
        console.log("td: ", td);

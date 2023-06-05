@@ -151,6 +151,19 @@ font-weight: bold;
 }
 
 
+.export-btn button{
+    margin: 1rem 0;
+    height: 4rem;
+    width: 10%;
+    border-radius: 0.5rem;
+    padding: 1rem 1rem;
+    cursor: pointer;
+    color: #fff;
+    background-color: #7911F7;
+    border: none;
+    outline: none;
+}
+
 table{
     width: 100%;
 	border-collapse: collapse; 
