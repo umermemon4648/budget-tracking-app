@@ -74,6 +74,13 @@ setBudgetForm.addEventListener('submit', (e) => {
   if (budgetLimit.value === '') {
     return alert('Please set your budget limit');
   }
+
+  swal({
+    title: "Greate!",
+    text: "Your monthly budget has been successfully set!",
+    icon: "success",
+    timer: 1000,
+  });
   expenseSummary.totalBudget = parseFloat(budgetLimit.value)
   calculateBalance(expenseSummary.totalBudget, expenseSummary.totalExpense)
   colorDivs.style.color = 'forestgreen';
@@ -193,6 +200,12 @@ budgetDetailForm.addEventListener('submit', (e) => {
   
   else if (selectedRow == null) {
     addExpense(date, category, desc, amount);
+    swal({
+      title: "Greate!",
+      text: "Expense added!",
+      icon: "success",
+      timer: 1000,
+    });
     selectedRow = null;
   }
    
@@ -202,6 +215,13 @@ budgetDetailForm.addEventListener('submit', (e) => {
     }
     const rowIndex = parseInt(selectedRow.dataset.id);
     updateExpense(rowIndex, date, category, desc, amount);
+    swal({
+      title: "Greate!",
+      text: "Expense has been successfully updated!",
+      icon: "success",
+      timer: 1000,
+    });
+
     selectedRow = null;
     expenseBtn.textContent = "Add Expense";
   }
@@ -214,28 +234,41 @@ budgetDetailForm.addEventListener('submit', (e) => {
 // ****** Deleting a row *****
 tableBody.addEventListener('click', (e) => {
   let target = e.target;
-  swal({
-    title: "Are you sure?",
-    text: "Once deleted, you will not be able to recover this imaginary file!",
-    icon: "warning",
-    buttons: true,
-    dangerMode: true,
-  })
-  .then((willDelete) => {
-    if (willDelete) {
-      swal("Poof! Your imaginary file has been deleted!", {
-        icon: "success",
-        
-      });
-    } 
-  });
+ 
 
   
+       
   if (target.classList.contains('delete')) {
+    swal({
+      title: "Are you sure?",
+      text: "You want to delete the row",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+      closeModal: false,
+      allowEscapeKey : true,
+      closeOnCancel: true
+  
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        swal("Poof! The row has been deleted!", {
+          icon: "success",
+          timer: 1000,
+        });
+  
+      } 
+    });
+
     const rowIndex = parseInt(target.parentElement.parentElement.dataset.id);
     deleteExpense(rowIndex);
     updateObjInLocalStorage()
   }
+
+  
+
+  
+ 
 });
 
 
@@ -284,8 +317,24 @@ colorDivs.style.color = 'forestgreen';
 }
 
 
+
+// $(document).ready(function() {
+//   $('#btn').on('click', function() {
+//     iziToast.success({
+//       title: 'Success',
+//       message: 'This is a success toast!',
+//       timeout: 4000
+//     });
+//   });
+// });
+
+
 document.querySelector('#btn').addEventListener('click', ()=>{
-  iziToast.show({
+  iziToast.warning({
+    transitionIn: 'flipInX',
+    transitionOut: 'flipOutX',
+    timeout: 1000,
+    position: 'topRight', 
     title: 'Hey',
     message: 'What would you like to add?'
 });
