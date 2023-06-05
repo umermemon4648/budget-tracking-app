@@ -319,18 +319,6 @@ colorDivs.style.color = 'forestgreen';
 
 
 
-// $(document).ready(function() {
-//   $('#btn').on('click', function() {
-//     iziToast.success({
-//       title: 'Success',
-//       message: 'This is a success toast!',
-//       timeout: 4000
-//     });
-//   });
-// });
 
 
-document.querySelector('#btn').addEventListener('click', ()=>{
-  toastAlert('Hello, this is a warning message!');
-})
 
