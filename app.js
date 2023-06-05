@@ -1,5 +1,6 @@
 // ****** HTML tags *****
-const setBudget = document.querySelector('#set-budget');
+let setBudget = document.querySelector('#set-budget');
+// setBudget.innerHTML = "0.00"
 const setExpense = document.querySelector('#set-expense-amount');
 const setBalance = document.querySelector('#remaining-balance');
 let tableBody = document.querySelector('#table-body');
@@ -34,13 +35,21 @@ let expenseSummary = {
     balanceLeft: 0
   };
   
-  const  getExpenseSummary= JSON.parse(localStorage.getItem('expenseSummary'))
+  //  console.log(getExpenseSummary.totalBudget);
+  
+     // Function to update and store the 'obj' in localStorage
+ const getExpenseSummary = () => {
+  return JSON.parse(localStorage.getItem('expenseSummary'))
+};
 
-  // Function to update and store the 'obj' in localStorage
-  const updateObjInLocalStorage = () => {
-    localStorage.setItem('expenseSummary', JSON.stringify(expenseSummary));
-    
-  };
+
+// Function to update and store the 'obj' in localStorage
+const updateObjInLocalStorage = () => {
+  localStorage.setItem('expenseSummary', JSON.stringify(expenseSummary));
+  
+};
+// let  getExpenseSummary= JSON.parse(localStorage.getItem('expenseSummary'))
+ 
 
 
 
@@ -84,11 +93,23 @@ setBudgetForm.addEventListener('submit', (e) => {
   });
   expenseSummary.totalBudget = parseFloat(budgetLimit.value)
   calculateBalance(expenseSummary.totalBudget, expenseSummary.totalExpense)
-  colorDivs.style.color = 'forestgreen';
-  setBudgetForm.reset();
   updateObjInLocalStorage()
-  setBudget.innerHTML = getExpenseSummary.totalBudget.toFixed(2);
+  colorDivs.style.color = 'forestgreen';
+  console.log("expenseSummary: ",expenseSummary);
+  // getExpenseSummary(expenseSummary)
+  console.log("getExpenseSummary(): ",getExpenseSummary());
+  console.log("getExpenseSummary().totalBudget: ",getExpenseSummary().totalBudget);
+  let settingBud = getExpenseSummary().totalBudget.toFixed(2);
+  console.log("settingBud: ",settingBud);
+  setBudget.value = settingBud
+  console.log("expenseSummary.totalBudget: ",expenseSummary.totalBudget)
+  // console.log("Getting what:",getExpenseSummary.totalBudget);
+  setBudgetForm.reset();
 });
+
+
+
+
 
 // ********** Function to create a table row ***********
 const createTableRow = (id, date, category, desc, amount) => {
@@ -173,7 +194,12 @@ budgetDetailForm.addEventListener('submit', (e) => {
   let desc = descField.value;
   
   // Validating all the fields
-  if (date === '') {
+   if(expenseSummary.totalBudget<=0){
+    budgetLimit.focus()
+    return toastAlert('Please! set your monthly budget');    
+  }
+
+  else if (date === '') {
     return toastAlert('Please enter the date');
   }
   
@@ -189,9 +215,7 @@ budgetDetailForm.addEventListener('submit', (e) => {
     return toastAlert('Please enter the description');
   }
 
-  else if(expenseSummary.totalBudget<=0){
-    return toastAlert('Please! set your monthly budget');    
-  }
+  
   
   else if(amount > expenseSummary.balanceLeft && previousExpenseAmount==0){
     return toastAlert('The amount you entered is greater than remaining balance you have!');    
@@ -235,9 +259,6 @@ budgetDetailForm.addEventListener('submit', (e) => {
 // ****** Deleting a row *****
 tableBody.addEventListener('click', (e) => {
   let target = e.target;
- 
-
-  
        
   if (target.classList.contains('delete')) {
     swal({
@@ -265,10 +286,6 @@ tableBody.addEventListener('click', (e) => {
     deleteExpense(rowIndex);
     updateObjInLocalStorage()
   }
-
-  
-
-  
  
 });
 
