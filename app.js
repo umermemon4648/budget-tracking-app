@@ -9,6 +9,10 @@ let colorDivs = document.querySelector('.amount');
 // ****** Input fields *****
 const budgetLimit = document.querySelector('#budget-limit');
 const currentDate = document.querySelector('#date-field');
+
+
+
+
 const amountField = document.querySelector('#amount-field');
 const categoryField = document.querySelector('#category-field');
 const descField = document.querySelector('#desc-field');
@@ -188,7 +192,12 @@ const deleteExpense = (index) => {
 // ****** Submitting budget detail form *****
 budgetDetailForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  let date = currentDate.value;
+
+ 
+
+
+  let date = convertDate(currentDate.value);
+  console.log('datevariabe: ',date);
   let amount = amountField.value;
   let category = categoryField.value;
   let desc = descField.value;

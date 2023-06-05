@@ -151,9 +151,9 @@ font-weight: bold;
 }
 
 
-.export-btn button{
+.export-btn-a-tag{
     margin: 1rem 0;
-    height: 4rem;
+    padding: 4rem;
     width: 10%;
     border-radius: 0.5rem;
     padding: 1rem 1rem;
