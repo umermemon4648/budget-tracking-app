@@ -71,8 +71,9 @@ amountField.addEventListener('keydown', (e) => {
 // ********** Set budget form ***********
 setBudgetForm.addEventListener('submit', (e) => {
   e.preventDefault();
+  // budgetLimit.focus()
   if (budgetLimit.value === '') {
-    return alert('Please set your budget limit');
+    return toastAlert('Please set your budget limit'); 
   }
 
   swal({
@@ -173,27 +174,27 @@ budgetDetailForm.addEventListener('submit', (e) => {
   
   // Validating all the fields
   if (date === '') {
-    return alert('Please enter the date');
+    return toastAlert('Please enter the date');
   }
   
   else if (amount === '') {
-    return alert('Please enter the amount');
+    return toastAlert('Please enter the amount');
   }
   
   else if (category === '') {
-    return alert('Please enter the category');
+    return toastAlert('Please enter the category');
   }
   
   else if (desc === '') {
-    return alert('Please enter the description');
+    return toastAlert('Please enter the description');
   }
 
   else if(expenseSummary.totalBudget<=0){
-    return alert('Please! set your monthly budget');    
+    return toastAlert('Please! set your monthly budget');    
   }
   
   else if(amount > expenseSummary.balanceLeft && previousExpenseAmount==0){
-    return alert('The amount you entered is greater than remaining balance you have!');    
+    return toastAlert('The amount you entered is greater than remaining balance you have!');    
   }
 
 
@@ -211,7 +212,7 @@ budgetDetailForm.addEventListener('submit', (e) => {
    
   else {
     if (amount-previousExpenseAmount > expenseSummary.balanceLeft) {
-      return alert('The amount you entered is greater than remaining balance you have!');    
+      return toastAlert('The amount you entered is greater than remaining balance you have!');    
     }
     const rowIndex = parseInt(selectedRow.dataset.id);
     updateExpense(rowIndex, date, category, desc, amount);
@@ -330,13 +331,6 @@ colorDivs.style.color = 'forestgreen';
 
 
 document.querySelector('#btn').addEventListener('click', ()=>{
-  iziToast.warning({
-    transitionIn: 'flipInX',
-    transitionOut: 'flipOutX',
-    timeout: 1000,
-    position: 'topRight', 
-    title: 'Hey',
-    message: 'What would you like to add?'
-});
+  toastAlert('Hello, this is a warning message!');
 })
 
