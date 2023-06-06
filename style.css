@@ -24,16 +24,13 @@ section{
 .overview{
     display: flex;
     flex-wrap: wrap;
-    /* border: 1px solid salmon; */
-    /* width: 80%; */
     justify-content: space-between;
     align-items: center;
-    margin: 2rem;
-    /* padding: 1rem 2rem; */
+    margin: 2rem 0;
+    border: 1px solid red;
 }
 .main-container{
-
-    margin: 0.5rem 2rem;
+    margin: 0.5rem 0rem;
 }
 .overview-container{
     /* flex-grow: 1; */
@@ -259,6 +256,7 @@ sup{
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+    margin: 2rem 0;
 }
 .main-container{
     margin: 0rem 0rem;
@@ -355,6 +353,7 @@ tbody tr td{
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+    margin: 2rem 0;
 }
 .main-container{
     margin: 0rem 0rem;
@@ -468,6 +467,7 @@ tbody tr td{
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+    margin: 2rem 0;
 }
 .main-container{
     margin: 0rem 0rem;
