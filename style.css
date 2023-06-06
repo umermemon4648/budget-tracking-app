@@ -366,17 +366,7 @@ tbody tr td{
     height: 220px;
 }
 
-/* #overview-heading{
-margin-bottom: 1rem;
-font-size: 2rem;
-font-weight: bold;
-}
 
-#budget-heading{
-    margin: 1.3rem 0;
-    font-size: 2rem;
-    font-weight: bold;
-} */
 
 
 .budget-section{
@@ -445,7 +435,14 @@ tbody tr td{
 }
 
 
-
+.search-export-div{
+    
+    width: 80%;
+    /* border: 1px solid black; */
+    float: right;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
 
 }
 
@@ -458,8 +455,9 @@ tbody tr td{
 
     body{
         font-size: 1.5rem;
-        /* background-color: gray; */
+        background-color: gray;
     }
+    
 
     section{
         /* border: 1px solid blue; */
@@ -510,50 +508,10 @@ input, select{
 }
 
 
-/* table{
-    width: 100%;
-	border-collapse: collapse; 
-    border-radius: 10px;
-    border: none;
-    table-layout: fixed;
-    font-size: 1rem;
-}
-
-th{
-    text-align: left;
-    color: #9b9fa0;
-    background-color: #EFF3F4;
-    height: 5rem;
-    padding-left: 2rem;
-}
-
-th:nth-child(1){
-width: 25%;
-}
-th:nth-child(2){
-    width: 20%;
-    }
-    th:nth-child(3){
-        width: 15%;
-        }
-
-        th:nth-child(4){
-            width: 10%;
-            }
-            th:nth-child(5){
-                width: 25%;
-                }
-
-tbody tr{
-    border: 2px solid #EFF3F4;
-    height: 7rem;
-}
-tbody tr td{ 
-    padding-left: 2rem;
-} */
 
  table thead{
-    display: none;
+    visibility: hidden;
+    display: block;
  }
  table, tbody, tr, td{
     font-size: 1.7rem;
@@ -596,6 +554,32 @@ tbody tr td:before{
 .icons{
     font-size: 1.5rem;
 }
+
+
+.search-export-div{
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* border: 1px solid black; */
+    float: right;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.search{
+    width: 70%;
+    float: right;
+    right: 0;
+    
+    
+}
+#search-field{
+    width: 100%;
+    background-color: #FCFCFC;
+    outline: 1px solid #7911F7;
+    border-radius: 4px;
+}
+
 
 }
 
