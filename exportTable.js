@@ -29,6 +29,7 @@ let tableData = Array.from(tr).map(row => {
 console.log(tableData);
 
 let newCol = tableData.map(col => col.join(','));
+// console.log(newCol);
 let arrayToString = newCol.join('\n');
 console.log(arrayToString);
 
@@ -38,5 +39,6 @@ console.log(arrayToString);
  const exportBtnAnchorTag = document.querySelector('#export-btn-a-tag');
 let blob = new Blob([arrayToString], {type: 'text/csv'})
 console.log(blob);
-exportBtnAnchorTag.download='Download'
+let currDate = new Date().toLocaleDateString('en-US')
+exportBtnAnchorTag.download=`Expenses(${currDate})`
 exportBtnAnchorTag.href = URL.createObjectURL(blob)

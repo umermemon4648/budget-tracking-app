@@ -432,8 +432,8 @@ tbody tr td{
 @media screen and (max-width: 640px) {
 
     body{
-        font-size: 1.3rem;
-        overflow-x: hidden;
+        font-size: 1.5rem;
+        /* background-color: gray; */
     }
 
     section{
@@ -485,7 +485,7 @@ input, select{
 }
 
 
-table{
+/* table{
     width: 100%;
 	border-collapse: collapse; 
     border-radius: 10px;
@@ -525,6 +525,46 @@ tbody tr{
 }
 tbody tr td{ 
     padding-left: 2rem;
+} */
+
+ table thead{
+    display: none;
+ }
+ table, tbody, tr, td{
+    font-size: 1.7rem;
+    display: block;
+    width: 100%;
+}
+tbody td{
+     padding: 1rem 0;
+     border-collapse: none;
+}
+tbody td:not(:last-child){
+    border-bottom: 2px solid #EFF3F4;
+}
+    
+tbody tr{
+    border: none;
+    border: 2px solid #EFF3F4;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+tbody tr td{
+    text-align: right;
+    padding-left: 50%;
+    padding-right: 15px;
+    position: relative;
+}
+
+tbody tr td:before{
+    position: absolute;
+    content: attr(data-label);
+    left: 0;
+    width: 50%;
+    text-align: left;
+    padding-left: 15px;
+    font-weight: bold;
 }
 
 
