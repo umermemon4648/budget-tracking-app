@@ -27,7 +27,6 @@ section{
     justify-content: space-between;
     align-items: center;
     margin: 2rem 0;
-    border: 1px solid red;
 }
 .main-container{
     margin: 0.5rem 0rem;
@@ -449,48 +448,37 @@ tbody tr td{
 
 
 
-/* media queries */
-@media screen and (max-width: 640px) {
+/* media queries for mobile screen*/
+@media screen and (max-width: 450px) {
 
     body{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+        background-color: blue;
     }
     
 
     section{
-        /* border: 1px solid blue; */
-        margin: 1rem 5rem ;
+        margin: 1rem 1rem ;
     }
     
-.overview{
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-    margin: 2rem 0;
-}
 .main-container{
     margin: 0rem 0rem;
 }
 
 .overview-container{
     /* flex-grow: 1; */
-    width: 300px;
-    height: 220px;
+    width: 250px;
+    height: 200px;
 }
-
-input, select{
-    font-size: inherit;
-}
-
 
 .budget-section{
-    margin: 1.5rem auto;
-    border: 1px solid red;
+    margin: 1rem auto;
     width: 100%;
-    padding: 12px;
-    border-radius: 1rem;
-    background-color: #EFF3F4;
+    padding: 8px;
+}
+
+#budget-limit{
+    width: 100%;
 }
 
 
@@ -500,10 +488,10 @@ input, select{
     width: 100%;
 }
 #budget-btn{
-    width: 50%;
+    width: 100%;
 }
 #expense-btn{
-    width: 80%;
+    width: 100%;
 }
 
 
@@ -566,7 +554,7 @@ tbody tr td:before{
     gap: 2rem;
 }
 .search{
-    width: 70%;
+    width: 100%;
     float: right;
     right: 0;
     
@@ -581,4 +569,11 @@ tbody tr td:before{
 
 
 }
+
+
+
+
+
+
+
 
