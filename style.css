@@ -444,15 +444,11 @@ tbody tr td{
 
 }
 
-
-
-
-
 /* media queries for mobile screen*/
 @media screen and (max-width: 450px) {
 
     body{
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     
 
