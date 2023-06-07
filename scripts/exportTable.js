@@ -38,7 +38,7 @@ console.log(arrayToString);
  
  const exportBtnAnchorTag = document.querySelector('#export-btn-a-tag');
 let blob = new Blob([arrayToString], {type: 'text/csv'})
-console.log(blob);
+// console.log(blob);
 let currDate = new Date().toLocaleDateString('en-US')
 exportBtnAnchorTag.download=`Expenses(${currDate})`
 exportBtnAnchorTag.href = URL.createObjectURL(blob)
