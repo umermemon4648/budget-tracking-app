@@ -1,5 +1,5 @@
 // ****** HTML tags *****
-let setBudget = document.querySelector('#set-budget');
+const setBudget = document.querySelector('#set-budget');
 // setBudget.innerHTML = "0.00"
 const setExpense = document.querySelector('#set-expense-amount');
 const setBalance = document.querySelector('#remaining-balance');
@@ -97,17 +97,19 @@ setBudgetForm.addEventListener('submit', (e) => {
   });
   expenseSummary.totalBudget = parseFloat(budgetLimit.value)
   calculateBalance(expenseSummary.totalBudget, expenseSummary.totalExpense)
-  updateObjInLocalStorage()
   colorDivs.style.color = 'forestgreen';
-  console.log("expenseSummary: ",expenseSummary);
+  // console.log("expenseSummary: ",expenseSummary);
   // getExpenseSummary(expenseSummary)
-  console.log("getExpenseSummary(): ",getExpenseSummary());
-  console.log("getExpenseSummary().totalBudget: ",getExpenseSummary().totalBudget);
+  // console.log("getExpenseSummary(): ",getExpenseSummary());
+  // console.log("getExpenseSummary().totalBudget: ",getExpenseSummary().totalBudget);
   let settingBud = getExpenseSummary().totalBudget.toFixed(2);
-  console.log("settingBud: ",settingBud);
-  setBudget.value = settingBud
-  console.log("expenseSummary.totalBudget: ",expenseSummary.totalBudget)
+  if (settingBud) {
+    // console.log("settingBud: ",settingBud);
+    setBudget.innerHTML = settingBud
+  }
+  // console.log("expenseSummary.totalBudget: ",expenseSummary.totalBudget)
   // console.log("Getting what:",getExpenseSummary.totalBudget);
+  updateObjInLocalStorage()
   setBudgetForm.reset();
 });
 
@@ -197,7 +199,7 @@ budgetDetailForm.addEventListener('submit', (e) => {
 
 
   let date = convertDate(currentDate.value);
-  console.log('datevariabe: ',date);
+  // console.log('datevariabe: ',date);
   let amount = amountField.value;
   let category = categoryField.value;
   let desc = descField.value;
@@ -336,7 +338,7 @@ function calculateExpenses(){
 let fourthChildTds = Array.from(rows, row => row.querySelector('td:nth-child(4)'));
 
 let sum = fourthChildTds.reduce((acc, cur) => acc + parseInt(cur.textContent), 0);
-console.log("sum:", sum);
+// console.log("sum:", sum);
 expenseSummary.totalExpense = parseInt(sum)
 
 setExpense.textContent = (expenseSummary.totalExpense).toFixed(2)
