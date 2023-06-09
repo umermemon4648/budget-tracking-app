@@ -1,17 +1,6 @@
 const exportBtn = document.querySelector('#export-btn');
 let tr = document.querySelectorAll('tr');
-// console.log(tr);
 
-// let tableData = Array.from(tr).map(row => {
-//   let rowData = Array.from(row.children)
-//   rowData.pop()
-//   return rowData.map(cell => cell.textContent);
-// });
-
-//  console.log(tableData);
-//  let newCol = tableData.map(col=> col.join(','))
-//  let arrayToString = newCol.join('\n')
-//  console.log(arrayToString);
 
 
 let tableData = Array.from(tr).map(row => {

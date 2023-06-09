@@ -12,7 +12,7 @@ function searchData(){
     
     for ( i = 0; i < tr.length; i++) {
        td = tr[i].getElementsByTagName('td')[1]
-       console.log("td: ", td);
+    //    console.log("td: ", td);
        if (td) {
         txtValue = td.textContent || td.innerText
         if (txtValue.toLowerCase().indexOf(filter) > -1) {
