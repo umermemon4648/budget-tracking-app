@@ -1,8 +1,6 @@
 const exportBtn = document.querySelector('#export-btn');
 let tr = document.querySelectorAll('tr');
 
-
-
 let tableData = Array.from(tr).map(row => {
   let rowData = Array.from(row.children);
   rowData.pop();
@@ -15,19 +13,19 @@ let tableData = Array.from(tr).map(row => {
   });
 });
 
-console.log(tableData);
-
 let newCol = tableData.map(col => col.join(','));
 // console.log(newCol);
 let arrayToString = newCol.join('\n');
-console.log(arrayToString);
+console.log("arrayToString: ", arrayToString);
 
-
-
- 
- const exportBtnAnchorTag = document.querySelector('#export-btn-a-tag');
-let blob = new Blob([arrayToString], {type: 'text/csv'})
-// console.log(blob);
-let currDate = new Date().toLocaleDateString('en-US')
-exportBtnAnchorTag.download=`Expenses(${currDate})`
-exportBtnAnchorTag.href = URL.createObjectURL(blob)
+const exportBtnAnchorTag = document.querySelector('#export-btn-a-tag');
+if (arrayToString.trim().length > 0) {
+  let blob = new Blob([arrayToString], { type: 'text/csv' });
+  console.log("blob: ", blob);
+  let currentDate = new Date().toLocaleDateString('en-US');
+  exportBtnAnchorTag.download = `Expenses(${currentDate})`;
+  exportBtnAnchorTag.href = URL.createObjectURL(blob);
+} else {
+  exportBtnAnchorTag.removeAttribute('download');
+  exportBtnAnchorTag.removeAttribute('href');
+}
