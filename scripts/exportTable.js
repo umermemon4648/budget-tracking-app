@@ -14,18 +14,27 @@ let tableData = Array.from(tr).map(row => {
 });
 
 let newCol = tableData.map(col => col.join(','));
-// console.log(newCol);
 let arrayToString = newCol.join('\n');
-console.log("arrayToString: ", arrayToString);
+console.log("tableData: ", tableData);
 
-const exportBtnAnchorTag = document.querySelector('#export-btn-a-tag');
-if (arrayToString.trim().length > 0) {
-  let blob = new Blob([arrayToString], { type: 'text/csv' });
-  console.log("blob: ", blob);
-  let currentDate = new Date().toLocaleDateString('en-US');
-  exportBtnAnchorTag.download = `Expenses(${currentDate})`;
-  exportBtnAnchorTag.href = URL.createObjectURL(blob);
-} else {
-  exportBtnAnchorTag.removeAttribute('download');
-  exportBtnAnchorTag.removeAttribute('href');
-}
+// if(tableData.length>1){
+  const exportBtnAnchorTag = document.querySelector('#export-btn-a-tag');
+  if (tableData.length>1) {
+    console.log("arrayToString",arrayToString.length);
+    let blob = new Blob([arrayToString], { type: 'text/csv' });
+    console.log("blob: ", blob);
+    let currentDate = new Date().toLocaleDateString('en-US');
+    exportBtnAnchorTag.download = `Expenses(${currentDate})`;
+    exportBtnAnchorTag.href = URL.createObjectURL(blob);
+  } else {
+    exportBtnAnchorTag.removeAttribute('download');
+    exportBtnAnchorTag.removeAttribute('href');
+    alert("Home")
+  }
+// }
+
+// else{
+  // return toastAlert('Please! set your monthly budget');  
+// }
+
+
