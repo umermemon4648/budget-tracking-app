@@ -29,7 +29,7 @@ console.log("tableData: ", tableData);
   } else {
     exportBtnAnchorTag.removeAttribute('download');
     exportBtnAnchorTag.removeAttribute('href');
-    alert("Home")
+    toastAlert("Home")
   }
 // }
 
